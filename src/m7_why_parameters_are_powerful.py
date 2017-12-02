@@ -2,19 +2,18 @@
 This module lets you experience the POWER of FUNCTIONS and PARAMETERS.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Catianne Troncin.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_draw_circles()
+    #   run_test_draw_circles()
     # Un-comment the next lines when you are ready to use them.
-    # run_test_better_draw_circles()
+    run_test_better_draw_circles()
     # run_test_even_better_draw_circles()
-
 
 # ----------------------------------------------------------------------
 # READ THIS:
@@ -27,11 +26,12 @@ def main():
 #  MORE POWERFUL versions of the   draw_circles   function.
 # ----------------------------------------------------------------------
 
+
 def run_test_draw_circles():
     """ Tests the   draw_circles   function. """
     # ------------------------------------------------------------------
     # Students:
-    #   Do NOT touch this function - it has no TODO in it.
+    #   Do NOT touch this function - it has no TO DO in it.
     # ------------------------------------------------------------------
     print()
     print('--------------------------------------------------')
@@ -93,6 +93,39 @@ def draw_circles():
 #   better_draw_circles  and  run_test_better_draw_circles.
 # ----------------------------------------------------------------------
 
+
+def run_test_better_draw_circles():
+    # Test 1
+    expected = 200
+    actual = better_draw_circles(10)
+    print("Expected final radius for test 1:", expected)
+    print("Actual final radius for test 1:",   actual)
+
+    # Test 2
+    expected = 60
+    actual = better_draw_circles(3)
+    print("Expected final radius for test 2:", expected)
+    print("Actual final radius for test 2:",   actual)
+
+    # Test 3
+    expected = 20
+    actual = better_draw_circles(1)
+    print("Expected final radius for test 3:", expected)
+    print("Actual final radius for test 3:", actual)
+
+def better_draw_circles(n):
+    window = rg.RoseWindow(400, 400)
+
+    center = rg.Point(200, 200)
+    for k in range(21):
+        circle = rg.Circle(center, n * k)
+        circle.attach_to(window)
+        window.render(0.05)  # Pauses for 0.05 seconds after rendering.
+        rad = circle.radius
+
+    window.close_on_mouse_click()
+
+    return rad
 
 # ----------------------------------------------------------------------
 # TODO: 3.
